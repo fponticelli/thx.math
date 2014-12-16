@@ -1,4 +1,3 @@
-thx.math
-========
+# thx.math
 
 Math helper library.

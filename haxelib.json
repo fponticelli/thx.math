@@ -1,0 +1,14 @@
+{
+  "name": "thx.math",
+  "url": "https://github.com/fponticelli/thx.math",
+  "license": "MIT",
+  "classPath": "src",
+  "tags": ["math", "thx", "cross"],
+  "description": "Math helper library.",
+  "releasenote": "First release.",
+  "version": "0.0.1",
+  "contributors": ["fponticelli"],
+  "dependencies": {
+    "thx.core": ""
+  }
+}
