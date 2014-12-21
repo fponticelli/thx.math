@@ -31,4 +31,8 @@ Equivalent to `Math.PI / 180`.
   public static inline var E = 2.71828182845904523536;
 
   public static inline var GOLDEN_RATIO = 1.6180339887498948482;
+
+  public static inline var EULER = 0.5772156649015329;
+
+  public inline static var KAPPA = 0.5522847498307936; //4 * (Math.sqrt(2) - 1) / 3;
 }
