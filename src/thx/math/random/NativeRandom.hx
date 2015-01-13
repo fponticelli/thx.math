@@ -1,11 +1,11 @@
 package thx.math.random;
 
-class NativeRandom {
+class NativeRandom extends BaseRandom {
   public function new() { }
 
-  public inline function int() : Int
+  override public function int() : Int
     return Std.random(0x7FFFFFFF);
 
-  public inline function float() : Float
+  override public function float() : Float
     return Math.random();
 }
