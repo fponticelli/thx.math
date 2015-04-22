@@ -1,6 +1,6 @@
 package thx.math.random;
 
-using thx.core.Ints;
+using thx.Ints;
 
 @:forward(int,float)
 abstract Random(TRandom) from TRandom to TRandom {
