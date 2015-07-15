@@ -11,6 +11,9 @@ abstract Random(TRandom) from TRandom to TRandom {
   public function between(min : Int, max : Int) : Int
     return Math.floor(this.float() * (1 + max - min)) + min;
 
+  public function bool() : Bool
+    return int() % 2 == 0;
+
   public function shuffle<T>(arr : Array<T>) : Array<T> {
     var t = arr.length.range(),
         array = [];
