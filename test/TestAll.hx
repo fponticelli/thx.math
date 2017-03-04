@@ -13,5 +13,7 @@ class TestAll {
     addTests(runner);
     Report.create(runner);
     runner.run();
+
+    trace(thx.math.Interval.dyadic(10, 2).toString());
   }
 }

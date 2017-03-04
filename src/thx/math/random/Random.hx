@@ -1,33 +1,32 @@
 package thx.math.random;
 
-using thx.Ints;
+using thx.Arrays;
+using thx.Floats;
 
-@:forward(int,float)
-abstract Random(TRandom) from TRandom to TRandom {
-  public function lessThan(max : Int) {
-    return Std.int(max * this.float());
+@:forward(int,normalized)
+abstract Random(Seed) from Seed to Seed {
+  inline public function between(min : Int, max : Int) : Int {
+    this = this.next();
+    return Math.round(this.normalized * (max - min)) + min;
   }
 
-  public function between(min : Int, max : Int) : Int
-    return Math.floor(this.float() * (1 + max - min)) + min;
+  inline public function betweenf(min : Float, max : Float) : Float {
+    this = this.next();
+    return this.normalized * (max - min) + min;
+  }
 
-  public function bool() : Bool
-    return int() % 2 == 0;
+  inline public function bool() : Bool {
+    this = this.next();
+    return this.int % 2 == 0;
+  }
 
-  public function shuffle<T>(arr : Array<T>) : Array<T> {
-    var t = arr.length.range(),
-        array = [];
-    while (t.length > 0) {
-      var pos = lessThan(t.length),
-          index = t[pos];
-      t.splice(pos, 1);
-      array.push(arr[index]);
+  inline public function shuffle<T>(arr : Array<T>) : Array<T> {
+    var pos = [];
+    for(i in 0...arr.length) {
+      this = this.next();
+      pos.push(this.normalized);
     }
-    return array;
+    var ranked = pos.rank(Floats.compare);
+    return arr.applyIndexes(ranked);
   }
-}
-
-typedef TRandom = {
-  public function int() : Int;
-  public function float() : Float;
 }

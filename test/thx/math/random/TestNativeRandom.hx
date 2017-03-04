@@ -1,25 +1,28 @@
 package thx.math.random;
 
 import utest.Assert;
+using thx.Arrays;
 
 class TestNativeRandom {
   public function new() { }
 
   public function testIntBoundaries() {
-    var random = new NativeRandom();
+    var seed = NativeSeed.create();
+    var buff = [for(i in 0...1000) {
+      seed = seed.next();
+      seed.int;
+    }];
 
-    for(i in 0...1000) {
-      var v = random.int();
-      Assert.isTrue(v >= 0 && v <= 0x7FFFFFFF, 'expected value to be between 0 and 0x7FFFFFFF, but is $i');
-    }
+    Assert.equals(1000, buff.distinct().length);
   }
 
   public function testFloatBoundaries() {
-    var random = new NativeRandom();
+    var seed = NativeSeed.create();
 
     for(i in 0...1000) {
-      var v = random.float();
-      Assert.isTrue(v >= 0 && v <= 1.0, 'expected value to be between 0 and 1, but is $i');
+      seed = seed.next();
+      var v = seed.normalized;
+      Assert.isTrue(v >= 0 && v <= 1.0, 'expected value to be between 0 and 1, but is $v');
     }
   }
 }

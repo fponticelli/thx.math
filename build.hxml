@@ -1,0 +1,9 @@
+-js bin/test.js
+-cp src
+-cp test
+-lib utest
+-lib thx.core
+-main TestAll
+#-cmd clear
+-cmd node bin/test.js
+#-D js-flatten
