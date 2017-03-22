@@ -15,5 +15,5 @@ class FastRNGSeed implements Seed {
     return seed & 0x3FFFFFFF;
 
   function get_normalized()
-    return seed / 1073741823.0;
+    return seed / 2147483647.0;
 }

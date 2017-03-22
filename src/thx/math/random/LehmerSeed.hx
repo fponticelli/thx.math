@@ -34,5 +34,5 @@ class LehmerSeed implements Seed {
     return x;
 
   function get_normalized()
-    return x / g.toInt();
+    return x / n.toInt();
 }
